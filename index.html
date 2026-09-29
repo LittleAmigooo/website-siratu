@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIRATU (Sistem Informasi Kelurahan Rawa Buntu)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E3A8A',
+                        secondary: '#0D9488',
+                        light: '#F8F9FA'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .hero-bg {
+            background-image: linear-gradient(rgba(30, 58, 138, 0.8), rgba(13, 148, 136, 0.6)), url('https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50">
+
+    <!-- Header & Navigation Bar -->
+    <header id="header" class="fixed w-full z-50 transition-all duration-300 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="logotangsel.png" alt="Logo Tangsel" class="w-10 h-10 object-contain">
+                <div>
+                    <h1 class="text-lg font-bold text-primary leading-tight">SIRATU</h1>
+                    <p class="text-xs text-gray-500">Sistem Informasi Kelurahan Rawa Buntu</p>
+                </div>
+            </div>
+            
+            <button id="mobile-menu-btn" class="md:hidden text-primary focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+
+            <nav class="hidden md:flex space-x-6">
+                <a href="#beranda" class="text-gray-600 hover:text-primary font-medium transition">Beranda</a>
+                <a href="#profil" class="text-gray-600 hover:text-primary font-medium transition">Profil</a>
+                <a href="#layanan" class="text-gray-600 hover:text-primary font-medium transition">Layanan Publik</a>
+                <a href="#berita" class="text-gray-600 hover:text-primary font-medium transition">Berita</a>
+                <a href="#struktur" class="text-gray-600 hover:text-primary font-medium transition">Struktur Organisasi</a>
+                <a href="#kontak" class="text-gray-600 hover:text-primary font-medium transition">Kontak</a>
+            </nav>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t pb-4">
+            <a href="#beranda" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-primary">Beranda</a>
+            <a href="#profil" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-primary">Profil</a>
+            <a href="#layanan" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-primary">Layanan Publik</a>
+            <a href="#berita" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-primary">Berita</a>
+            <a href="#struktur" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-primary">Struktur Organisasi</a>
+            <a href="#kontak" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-primary">Kontak</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="hero-bg h-screen flex items-center justify-center text-center pt-20">
+        <div class="container mx-auto px-4 text-white">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-lg">Selamat Datang di SIRATU<br><span class="text-3xl md:text-4xl lg:text-5xl font-normal">Sistem Informasi Kelurahan Rawa Buntu</span></h1>
+            <p class="text-lg md:text-xl lg:text-2xl mb-8 max-w-3xl mx-auto drop-shadow-md">Pelayanan Publik Cepat, Transparan, dan Terintegrasi untuk Warga Rawa Buntu</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#layanan" class="bg-secondary hover:bg-teal-700 text-white font-semibold py-3 px-8 rounded-full transition shadow-lg">Ajukan Layanan</a>
+                <a href="#kontak" class="bg-white hover:bg-gray-100 text-primary font-semibold py-3 px-8 rounded-full transition shadow-lg">Hubungi Kami</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profil Singkat & Visi Misi -->
+    <section id="profil" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-2">Profil Kelurahan</h2>
+                <div class="w-16 h-1 bg-secondary mx-auto rounded"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/3">
+                    <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Rawa Buntu" class="rounded-xl shadow-xl w-full sticky top-24">
+                </div>
+                <div class="lg:w-2/3">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Tentang Rawa Buntu</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Kelurahan Rawa Buntu merupakan salah satu kelurahan yang terletak di Kecamatan Serpong, Kota Tangerang Selatan, Banten. Kami berkomitmen untuk memberikan pelayanan terbaik bagi seluruh warga dengan mengedepankan prinsip transparansi, inovasi, dan kolaborasi.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 gap-6 mt-8">
+                        <div class="bg-gray-50 p-6 rounded-lg border border-gray-100 card-hover">
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="logotangsel.png" alt="Lambang Tangsel" class="w-10 h-10 object-contain">
+                                <h4 class="font-bold text-lg">Visi Kelurahan Rawabuntu</h4>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed text-justify italic">"Mewujudkan masyarakat Kelurahan Rawabuntu dalam pelayanan prima dan berorientasi kepada terciptanya SDM yang cerdas, modern, religious dan berdaya saing serta tepat guna terhadap ilmu pengetahuan dan teknologi (IPTEK)"</p>
+                        </div>
+
+                        <div class="bg-gray-50 p-6 rounded-lg border border-gray-100 card-hover">
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="logotangsel.png" alt="Lambang Tangsel" class="w-10 h-10 object-contain">
+                                <h4 class="font-bold text-lg">Misi Kelurahan Rawabuntu</h4>
+                            </div>
+                            <ol class="text-sm text-gray-600 list-decimal list-outside ml-4 space-y-2 text-justify">
+                                <li>Mewujudkan aparatur yang berkualitas, cerdas, modern dan religious.</li>
+                                <li>Terselenggaranya pelayanan prima kepada masyarakat yang professional dengan mendayagunakan seluruh aparatur.</li>
+                                <li>Mewujudkan pelayanan masyarakat yang terbuka, efektif, efisien serta memuaskan.</li>
+                                <li>Meningkatkan peran aktif masyarakat dalam pembangunan yang berkelanjutan dan berorientasikan kepentingan masyarakat.</li>
+                                <li>Meningkatkan pemberdayaan masyarakat yang berdaya saing dan tepat guna.</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-gray-50 p-6 rounded-lg border border-gray-100 card-hover flex flex-col justify-center">
+                                <h4 class="font-bold text-lg mb-2 text-gray-800">Motto</h4>
+                                <p class="text-gray-800 font-bold text-center text-lg mt-2">"Ramah, Efisien dan Berprestasi"</p>
+                            </div>
+
+                            <div class="bg-gray-50 p-6 rounded-lg border border-gray-100 card-hover flex flex-col justify-center">
+                                <h4 class="font-bold text-lg mb-2 text-gray-800">Maklumat</h4>
+                                <p class="text-sm text-gray-600 leading-relaxed text-justify italic">"Dengan ini, Kami menyatakan sanggup menyelenggarakan layanan sesuai standard pelayanan yang telah ditetapkan dan apabila tidak menepati janji ini, kami siap menerima sangsi sesuai dengan peraturan perundang-undangan yang berlaku"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Layanan Publik -->
+    <section id="layanan" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-2">Layanan Publik Utama</h2>
+                <div class="w-16 h-1 bg-secondary mx-auto rounded"></div>
+                <p class="mt-4 text-gray-600">Akses cepat ke berbagai layanan utama Kelurahan Rawa Buntu</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover border-t-4 border-primary">
+                    <div class="text-primary text-4xl mb-4"><i class="fas fa-id-card"></i></div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Administrasi Kependudukan</h3>
+                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">Pembuatan surat pengantar Kartu Tanda Penduduk (KTP), Kartu Keluarga (KK), serta program berkala Jemput Bola (Jebol) pencatatan sipil.</p>
+                    <button onclick="bukaModal('adminduk')" class="text-primary font-semibold text-sm hover:text-secondary flex items-center gap-2 mt-auto focus:outline-none">Detail & Alur <i class="fas fa-arrow-right"></i></button>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover border-t-4 border-secondary">
+                    <div class="text-secondary text-4xl mb-4"><i class="fas fa-clinic-medical"></i></div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Layanan Kesehatan & Posyandu</h3>
+                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">Pemantauan tumbuh kembang bayi/balita, pos lansia Alamanda, serta kerja sama skrining TBC dan gerebek jentik DBD bersama Puskesmas Rawa Buntu.</p>
+                    <button onclick="bukaModal('kesehatan')" class="text-secondary font-semibold text-sm hover:text-primary flex items-center gap-2 mt-auto focus:outline-none">Detail & Alur <i class="fas fa-arrow-right"></i></button>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover border-t-4 border-primary">
+                    <div class="text-primary text-4xl mb-4"><i class="fas fa-file-signature"></i></div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Surat Keterangan & Pengantar</h3>
+                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">Pengurusan surat domisili, pembuatan Surat Keterangan Usaha (SKU), dan berbagai layanan pengantar dokumen kelurahan lainnya.</p>
+                    <button onclick="bukaModal('surat')" class="text-primary font-semibold text-sm hover:text-secondary flex items-center gap-2 mt-auto focus:outline-none">Detail & Alur <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <button onclick="bukaModalForm()" class="px-6 py-2 border-2 border-primary text-primary font-semibold rounded-full hover:bg-primary hover:text-white transition focus:outline-none shadow-sm hover:shadow-md">
+                    <i class="fas fa-laptop-house mr-2"></i> Ajukan Layanan Online
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Berita & Pengumuman -->
+    <section id="berita" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-2">Berita & Pengumuman Terbaru</h2>
+                <div class="w-16 h-1 bg-secondary mx-auto rounded"></div>
+                <p class="mt-4 text-gray-600">Informasi kegiatan dan pengumuman resmi terkini dari Kelurahan Rawa Buntu</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Berita 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover border border-gray-100 flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pelayanan Jemput Bola" class="h-48 w-full object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center gap-2 text-xs text-secondary font-semibold mb-2">
+                            <i class="far fa-calendar-alt"></i> <span>25 Mei 2026</span>
+                            <span class="mx-1">•</span>
+                            <span class="bg-teal-50 px-2 py-0.5 rounded text-secondary">Kependudukan</span>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-3 leading-snug">Program Jemput Bola Adminduk Keliling Hadir di Wilayah Rawa Buntu</h3>
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">Kelurahan Rawa Buntu kembali mengadakan layanan jemput bola pencatatan sipil untuk memudahkan warga melakukan perekaman KTP-el dan KIA langsung di lingkungan RT/RW.</p>
+                        <button onclick="alert('Halaman detail berita sedang dalam pemeliharaan.')" class="mt-auto text-primary font-semibold text-sm hover:text-secondary flex items-center gap-2 focus:outline-none">Baca Selengkapnya <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Berita 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover border border-gray-100 flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Posyandu" class="h-48 w-full object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center gap-2 text-xs text-secondary font-semibold mb-2">
+                            <i class="far fa-calendar-alt"></i> <span>18 Mei 2026</span>
+                            <span class="mx-1">•</span>
+                            <span class="bg-teal-50 px-2 py-0.5 rounded text-secondary">Kesehatan</span>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-3 leading-snug">Gerakan Serentak Posyandu & Skrining Kesehatan Balita</h3>
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">Pemeriksaan tumbuh kembang balita dan penyuluhan gizi seimbang rutin diadakan bersama kader Posyandu serta petugas Puskesmas setempat.</p>
+                        <button onclick="alert('Halaman detail berita sedang dalam pemeliharaan.')" class="mt-auto text-primary font-semibold text-sm hover:text-secondary flex items-center gap-2 focus:outline-none">Baca Selengkapnya <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Berita 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover border border-gray-100 flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d0fbb18f06f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kerja Bakti" class="h-48 w-full object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center gap-2 text-xs text-secondary font-semibold mb-2">
+                            <i class="far fa-calendar-alt"></i> <span>10 Mei 2026</span>
+                            <span class="mx-1">•</span>
+                            <span class="bg-teal-50 px-2 py-0.5 rounded text-secondary">Lingkungan</span>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-3 leading-snug">Kerja Bakti Massal dan Pemberantasan Sarang Nyamuk (PSN)</h3>
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">Warga bersama jajaran aparatur kelurahan menggalakkan program gerebek jentik berkala guna mengantisipasi penyebaran DBD di musim pancaroba.</p>
+                        <button onclick="alert('Halaman detail berita sedang dalam pemeliharaan.')" class="mt-auto text-primary font-semibold text-sm hover:text-secondary flex items-center gap-2 focus:outline-none">Baca Selengkapnya <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Struktur Organisasi (Format Bagan Presisi Sesuai Foto Asli) -->
+    <section id="struktur" class="py-20 bg-light overflow-hidden">
+        <div class="container mx-auto px-4">
+            
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-primary mb-2">Struktur Organisasi Kelurahan Rawa Buntu</h2>
+                <div class="w-16 h-1 bg-secondary mx-auto rounded"></div>
+                <p class="mt-4 text-gray-500 text-sm">Berdasarkan Peraturan Wali Kota Tangerang Selatan Nomor 95 Tahun 2016</p>
+            </div>
+
+            <!-- Container Grid Flowchart (Scrollable horizontal buat HP) -->
+            <div class="w-full overflow-x-auto hide-scrollbar pb-10">
+                
+                <!-- Wrapper Lebar 1150px biar posisinya fix dan presisi persis gambar -->
+                <div class="min-w-[1150px] mx-auto relative pt-8 font-sans">
+                    
+                    <!-- 1. KOTAK LURAH -->
+                    <div class="flex justify-center relative z-10">
+                        <div class="w-[280px] h-[200px] bg-white border-t-4 border-primary shadow-xl rounded-xl p-5 text-center flex flex-col items-center justify-center card-hover">
+                            <img src="lurah.jpeg" alt="Lurah" class="w-24 h-24 rounded-full mb-3 object-cover border-4 border-gray-100 shadow-sm">
+                            <h3 class="font-bold text-base text-gray-800 leading-tight">Wawan Darmawan, S.K.M., M.Kes</h3>
+                            <p class="text-xs text-secondary font-bold mt-1 uppercase tracking-wider">Lurah Rawabuntu</p>
+                        </div>
+                    </div>
+
+                    <!-- Garis Utama Tengah (Turun dari Lurah ke Deretan Kasi) -->
+                    <div class="absolute top-[232px] left-1/2 w-0.5 h-[160px] bg-primary transform -translate-x-1/2 z-0"></div>
+                    
+                    <!-- 2. GARIS HORIZONTAL ATAS (Fungsional - Sekkel) -->
+                    <div class="absolute top-[280px] left-[143px] right-[143px] border-t-2 border-primary z-0"></div>
+
+                    <!-- LEVEL 2: KOTAK FUNGSIONAL & SEKKEL -->
+                    <div class="absolute top-[280px] w-full grid grid-cols-4 gap-8 z-10">
+                        
+                        <!-- Col 1: Jabatan Fungsional (Kiri) -->
+                        <div class="flex flex-col items-center">
+                            <div class="w-0.5 h-[30px] bg-primary"></div>
+                            <div class="w-full bg-white border border-gray-200 shadow-sm rounded-lg p-4 text-center h-[90px] flex flex-col justify-center">
+                                <h4 class="font-bold text-[11px] text-gray-700 uppercase border-b pb-1 mb-1 text-center">Kelompok Jabatan Fungsional</h4>
+                                <ul class="text-[10px] text-gray-500 space-y-0.5 mt-1 text-left ml-4 list-decimal font-medium">
+                                    <li>.........................................</li>
+                                    <li>.........................................</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Col 2 Kosong -->
+                        <div></div>
+                        <!-- Col 3 Kosong -->
+                        <div></div>
+
+                        <!-- Col 4: Sekretaris Kelurahan (Kanan) -->
+                        <div class="flex flex-col items-center relative">
+                            <div class="w-0.5 h-[30px] bg-primary"></div>
+                            <div class="w-full bg-white border-t-4 border-secondary shadow-md rounded-xl p-4 h-[90px] flex items-center justify-center card-hover">
+                                <div class="flex items-center gap-3 w-full justify-center">
+                                    <img src="sekel.jpeg" alt="Sekkel" class="w-12 h-12 rounded-full object-cover border-2 border-gray-100 shadow-sm flex-shrink-0">
+                                    <div class="text-left leading-tight">
+                                        <p class="font-bold text-[12px] text-gray-800">M. Wildan A.K. Praja, S.STP., MA.</p>
+                                        <p class="text-[9px] text-secondary font-bold uppercase tracking-wider mt-0.5">Sekretaris Kelurahan</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- GARIS LANGSUNG DARI SEKKEL TURUN KE STAF SEKRETARIAT -->
+                            <div class="w-0.5 h-[142px] bg-primary"></div>
+                        </div>
+                    </div>
+
+                    <!-- 3. GARIS HORIZONTAL BAWAH (3 Kasi) -->
+                    <div class="absolute top-[392px] left-[143px] right-[431px] border-t-2 border-primary z-0"></div>
+
+                    <!-- LEVEL 3: 3 KOTAK KASI & BARISAN SEMUA STAF -->
+                    <div class="mt-[160px] grid grid-cols-4 gap-8 relative z-10">
+                        
+                        <!-- Col 1: Kasi Pemerintahan -->
+                        <div class="flex flex-col items-center">
+                            <div class="w-0.5 h-[30px] bg-primary"></div>
+                            <div class="w-full bg-white border-t-4 border-primary shadow-md rounded-xl p-4 h-[90px] flex items-center justify-center card-hover">
+                                <div class="flex items-center gap-3 w-full justify-center">
+                                    <img src="kasi.jpeg" alt="Kasi Pem" class="w-12 h-12 rounded-full object-cover border-2 border-gray-100 shadow-sm flex-shrink-0">
+                                    <div class="text-left leading-tight">
+                                        <h3 class="font-bold text-[12px] text-gray-800">Sumyadi, S.E.</h3>
+                                        <p class="text-[9px] text-primary font-bold uppercase tracking-wider mt-0.5">Kasi Pemerintahan</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-0.5 h-[30px] bg-primary"></div>
+                            <!-- List Staf Kasi Pem -->
+                            <div class="w-full flex flex-col gap-2">
+                                <div class="bg-white border border-gray-200 rounded-lg p-2 flex items-center gap-3 shadow-sm">
+                                    <img src="jelani.jpeg" alt="Jelani" onerror="this.src='https://ui-avatars.com/api/?name=Jelani&background=e2e8f0&color=475569'" class="w-8 h-8 rounded-full object-cover">
+                                    <div class="text-left leading-tight">
+                                        <p class="text-xs font-bold text-gray-800">Jelani, SE</p>
+                                        <p class="text-[9px] text-gray-500">Pelaksana</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-200 rounded-lg p-2 flex items-center gap-3 shadow-sm">
+                                    <img src="ari.jpeg" alt="Ari" onerror="this.src='https://ui-avatars.com/api/?name=Ari+Yulianto&background=e2e8f0&color=475569'" class="w-8 h-8 rounded-full object-cover">
+                                    <div class="text-left leading-tight">
+                                        <p class="text-xs font-bold text-gray-800">Ari Yulianto, SE</p>
+                                        <p class="text-[9px] text-gray-500">Pelaksana</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-200 rounded-lg p-2 flex items-center gap-3 shadow-sm">
+                                    <img src="desi.jpeg" alt="Desi" onerror="this.src='https://ui-avatars.com/api/?name=Desi+Nursanti&background=e2e8f0&color=475569'" class="w-8 h-8 rounded-full object-cover">
+                                    <div class="text-left leading-tight">
+                                        <p class="text-xs font-bold text-gray-800">Desi Nursanti</p>
+                                        <p class="text-[9px] text-gray-500">Operator SIAK</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-200 rounded-lg p-2 flex items-center gap-3 shadow-sm">
+                                    <img src="ridwan.jpeg" alt="Ridwan" onerror="this.src='https://ui-avatars.com/api/?name=Ridwan+Arifin&background=e2e8f0&color=475569'" class="w-8 h-8 rounded-full object-cover">
+                                    <div class="text-left leading-tight">
+                                        <p class="text-xs font-bold text-gray-800">H. Ridwan Arifin</p>
+                                        <p class="text-[9px] text-gray-500">Operator SIAK</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Col 2: Kasi Kesejahteraan Sosial -->
+                        <div class="flex flex-col items-center">
+                            <div class="w-0.5 h-[30px] bg-primary"></div>
+                            <div class="w-full bg-white border-t-4 border-primary shadow-md rounded-xl p-4 h-[90px] flex items-center justify-center card-hover">
+                                <div class="flex items-center gap-3 w-full justify-center">
+                                    <img src="pepen.jpeg" alt="Kasi Kesos" class="w-12 h-12 rounded-full object-cover border-2 border-gray-100 shadow-sm flex-shrink-0">
+                                    <div class="text-left leading-tight">
+                                        <h3 class="font-bold text-[12px] text-gray-800">Pepen Apandi, S.E., M.M.</h3>
+                                        <p class="text-[9px] text-primary font-bold uppercase tracking-wider mt-0.5">Kasi Kesos</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-0.5 h-[30px] bg-primary"></div>
+                            <!-- List Staf Kasi Kesos -->
+                            <div class="w-full flex flex-col gap-2">
+                                <div class="bg-white border border-gray-200 rounded-lg p-2 flex items-center gap-3 shadow-sm">
+                                    <img src="ratno.jpeg" alt="Ratno" onerror="this.src='https://ui-avatars.com/api/?name=Ratno+Wijaya&background=e2e8f0&color=475569'" class="w-8 h-8 rounded-full object-cover">
+                                    <div class="text-left leading-tight">
+                                        <p class="text-xs font-bold text-gray-800">Ratno Wijaya</p>
+                                        <p class="text-[9px] text-gray-500">Pelaksana</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-200 rounded-lg p-2 flex items-center gap-3 shadow-sm">
+                                    <img src="erwin.jpeg" alt="Erwin" onerror="this.src='https://ui-avatars.com/api/?name=Erwin+Sumantri&background=e2e8f0&color=475569'" class="w-8 h-8 rounded-full object-cover">
+                                    <div class="text-left leading-tight">
+                                        <p class="text-xs font-bold text-gray-800">Erwin Sumantri</p>
+                                        <p class="text-[9px] text-gray-500">Pelaksana</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Col 3: Kasi Ekonomi Pembangunan -->
+                        <div class="flex flex-col items-center">
+                            <div class="w-0.5 h-[30px] bg-primary"></div>
+                            <div class="w-full bg-white border-t-4 border-secondary shadow-md rounded-xl p-4 h-[90px] flex items-center justify-center card-hover">
+                                <div class="flex items-center gap-3 w-full justify-center">
+                                    <img src="kasiEkonomi.jpeg" alt="Kasi Ekbang" class="w-12 h-12 rounded-full object-cover border-2 border-gray-100 shadow-sm flex-shrink-0">
+                                    <div class="text-left leading-tight">
+                                        <h3 class="font-bold text-[12px] text-gray-800">Indah Agustini, S.A.P.</h3>
+                                        <p class="text-[9px] text-secondary font-bold uppercase tracking-wider mt-0.5">Kasi Ekbang</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-0.5 h-[30px] bg-primary"></div>
+                            <!-- List Staf Kasi Ekbang -->
+                            <div class="w-full flex flex-col gap-2">
+                                <div class="bg-white border border-gray-200 rounded-lg p-2 flex items-center gap-3 shadow-sm">
+                                    <img src="yunus.jpeg" alt="Yunus" onerror="this.src='https://ui-avatars.com/api/?name=Yunus&background=e2e8f0&color=475569'" class="w-8 h-8 rounded-full object-cover">
+                                    <div class="text-left leading-tight">
+                                        <p class="text-xs font-bold text-gray-800">Yunus, S. Sos</p>
+                                        <p class="text-[9px] text-gray-500">Pelaksana</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-200 rounded-lg p-2 flex items-center gap-3 shadow-sm">
+                                    <img src="ujang.jpeg" alt="Ujang" onerror="this.src='https://ui-avatars.com/api/?name=Ujang+Sukarta&background=e2e8f0&color=475569'" class="w-8 h-8 rounded-full object-cover">
+                                    <div class="text-left leading-tight">
+                                        <p class="text-xs font-bold text-gray-800">H. Ujang Sukarta</p>
+                                        <p class="text-[9px] text-gray-500">Pelaksana</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-200 rounded-lg p-2 flex items-center gap-3 shadow-sm">
+                                    <img src="ade.jpeg" alt="Ade" onerror="this.src='https://ui-avatars.com/api/?name=Ade+Irawan&background=e2e8f0&color=475569'" class="w-8 h-8 rounded-full object-cover">
+                                    <div class="text-left leading-tight">
+                                        <p class="text-xs font-bold text-gray-800">Ade Irawan</p>
+                                        <p class="text-[9px] text-gray-500">Pelaksana</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Col 4: Staf Sekretariat (Dibawah Kotak Sekkel) -->
+                        <div class="flex flex-col items-center">
+                            <div class="mt-[150px] w-full flex flex-col gap-2 relative">
+                                <div class="bg-white border border-gray-200 rounded-lg p-2 flex items-center gap-3 shadow-sm">
+                                    <img src="annticha.jpeg" alt="Annticha" onerror="this.src='https://ui-avatars.com/api/?name=Annticha&background=e2e8f0&color=475569'" class="w-8 h-8 rounded-full object-cover">
+                                    <div class="text-left leading-tight">
+                                        <p class="text-xs font-bold text-gray-800">Annticha Hazastia A.</p>
+                                        <p class="text-[9px] text-gray-500">Pelaksana</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-200 rounded-lg p-2 flex items-center gap-3 shadow-sm">
+                                    <img src="annisa.jpeg" alt="Annisa" onerror="this.src='https://ui-avatars.com/api/?name=Annisa+Nur&background=e2e8f0&color=475569'" class="w-8 h-8 rounded-full object-cover">
+                                    <div class="text-left leading-tight">
+                                        <p class="text-xs font-bold text-gray-800">Annisa Nur Adina</p>
+                                        <p class="text-[9px] text-gray-500">Pelaksana</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-200 rounded-lg p-2 flex items-center gap-3 shadow-sm">
+                                    <img src="dodi.jpeg" alt="Dodi" onerror="this.src='https://ui-avatars.com/api/?name=Dodi+Dores&background=e2e8f0&color=475569'" class="w-8 h-8 rounded-full object-cover">
+                                    <div class="text-left leading-tight">
+                                        <p class="text-xs font-bold text-gray-800">Dodi Dores</p>
+                                        <p class="text-[9px] text-gray-500">Security</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-200 rounded-lg p-2 flex items-center gap-3 shadow-sm">
+                                    <img src="budi.jpeg" alt="Budi" onerror="this.src='https://ui-avatars.com/api/?name=Budi+Rudi&background=e2e8f0&color=475569'" class="w-8 h-8 rounded-full object-cover">
+                                    <div class="text-left leading-tight">
+                                        <p class="text-xs font-bold text-gray-800">Budi Rudi</p>
+                                        <p class="text-[9px] text-gray-500">Security</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white border border-gray-200 rounded-lg p-2 flex items-center gap-3 shadow-sm">
+                                    <img src="ahmad.jpeg" alt="Ahmad" onerror="this.src='https://ui-avatars.com/api/?name=Ahmad&background=e2e8f0&color=475569'" class="w-8 h-8 rounded-full object-cover">
+                                    <div class="text-left leading-tight">
+                                        <p class="text-xs font-bold text-gray-800">Ahmad</p>
+                                        <p class="text-[9px] text-gray-500">Office Boy</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Kontak -->
+    <footer id="kontak" class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="logotangsel.png" alt="Logo Tangsel" class="w-10 h-10 object-contain bg-white rounded-full p-1">
+                        <h2 class="text-xl font-bold leading-tight">Kelurahan<br>Rawa Buntu</h2>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                        SIRATU (Sistem Informasi Kelurahan Rawa Buntu) adalah portal resmi pelayanan publik dan informasi terkini Kelurahan Rawa Buntu, Kecamatan Serpong, Kota Tangerang Selatan.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-6 border-b border-gray-700 pb-2 inline-block">Hubungi Kami</h3>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li class="flex items-start gap-3"><i class="fas fa-map-marker-alt mt-1 text-secondary"></i><span>Jl. Raya Rawabuntu-BSD City,<br>Kec. Serpong, Kota Tangerang Selatan,<br>Banten</span></li>
+                        <li class="flex items-center gap-3"><i class="fas fa-phone-alt text-secondary"></i><span>(021) 1234-5678</span></li>
+                        <li class="flex items-center gap-3"><i class="fab fa-whatsapp text-secondary text-lg"></i><span>+62 812-3456-7890 (Pengaduan)</span></li>
+                        <li class="flex items-center gap-3"><i class="far fa-envelope text-secondary"></i><span>info@rawabuntu.go.id</span></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-6 border-b border-gray-700 pb-2 inline-block">Jam Pelayanan</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li class="flex justify-between"><span>Senin - Kamis</span><span>08:00 - 15:00 WIB</span></li>
+                        <li class="flex justify-between"><span>Jumat</span><span>08:00 - 15:30 WIB</span></li>
+                        <li class="flex justify-between"><span>Istirahat (Jumat)</span><span>11:30 - 13:00 WIB</span></li>
+                        <li class="flex justify-between text-red-400 mt-2"><span>Sabtu - Minggu</span><span>Tutup</span></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-6 border-b border-gray-700 pb-2 inline-block">Lokasi Kantor</h3>
+                    <div class="w-full h-40 bg-gray-800 rounded-lg overflow-hidden relative">
+                        <div class="absolute inset-0 flex items-center justify-center text-gray-500">
+                            <i class="fas fa-map-marked-alt text-4xl mb-2"></i>
+                            <span class="block text-sm">Google Maps Area</span>
+                        </div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.195325608226!2d106.6787!3d-6.3238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTknMjUuNyJTIDEwNsKwNDAnNDMuMyJF!5e0!3m2!1sen!2sid!4v1620000000000!5m2!1sen!2sid" width="100%" height="100%" style="border:0; opacity: 0.5;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2026 Pemerintah Kelurahan Rawa Buntu. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL LAYANAN PUBLIK (Info Alur) -->
+    <div id="modal-layanan" class="fixed inset-0 z-[100] hidden items-center justify-center opacity-0 transition-opacity duration-300">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-gray-900 bg-opacity-60 backdrop-blur-sm cursor-pointer" onclick="tutupModal()"></div>
+        <!-- Modal Content Box -->
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-4 relative z-10 transform scale-95 transition-transform duration-300 overflow-hidden flex flex-col max-h-[90vh]" id="modal-panel">
+            <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-gray-50">
+                <div class="flex items-center gap-3">
+                    <div id="modal-icon-container" class="w-10 h-10 rounded-full flex items-center justify-center text-lg shadow-sm">
+                        <i id="modal-icon" class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 id="modal-title" class="text-lg font-bold text-gray-800">Judul Layanan</h3>
+                </div>
+                <button onclick="tutupModal()" class="text-gray-400 hover:text-red-500 transition-colors p-1 focus:outline-none">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto">
+                <div class="mb-6">
+                    <h4 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                        <i class="fas fa-clipboard-check text-secondary"></i> Ringkasan & Persyaratan
+                    </h4>
+                    <ul id="modal-syarat" class="list-disc list-outside ml-6 text-sm text-gray-600 space-y-1.5 marker:text-gray-400">
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                        <i class="fas fa-shoe-prints text-primary"></i> Alur Pelayanan
+                    </h4>
+                    <ol id="modal-alur" class="list-decimal list-outside ml-6 text-sm text-gray-600 space-y-2 marker:text-gray-400 font-medium">
+                    </ol>
+                </div>
+            </div>
+            <div class="px-6 py-4 border-t border-gray-100 bg-gray-50 flex justify-end">
+                <button onclick="tutupModal()" class="px-5 py-2 bg-gray-200 text-gray-700 font-bold rounded-lg hover:bg-gray-300 transition-colors text-sm focus:outline-none">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL FORM PENGAJUAN ONLINE -->
+    <div id="modal-form" class="fixed inset-0 z-[110] hidden items-center justify-center opacity-0 transition-opacity duration-300">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-gray-900 bg-opacity-70 backdrop-blur-sm cursor-pointer" onclick="tutupModalForm()"></div>
+        <!-- Modal Content Box -->
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl mx-4 relative z-10 transform scale-95 transition-transform duration-300 overflow-hidden flex flex-col max-h-[90vh]" id="modal-form-panel">
+            <!-- Header -->
+            <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-gray-50">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center text-lg shadow-sm bg-primary text-white">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800">Formulir Pengajuan Layanan Online</h3>
+                </div>
+                <button onclick="tutupModalForm()" class="text-gray-400 hover:text-red-500 transition-colors p-1 focus:outline-none">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <!-- Body Form -->
+            <div class="p-6 overflow-y-auto">
+                <form id="formLayananOnline" onsubmit="submitFormLayanan(event)" class="space-y-5">
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Nama Lengkap (Sesuai KTP) <span class="text-red-500">*</span></label>
+                            <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Nomor Induk Kependudukan (NIK) <span class="text-red-500">*</span></label>
+                            <input type="number" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" placeholder="16 digit NIK">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">No. WhatsApp Aktif <span class="text-red-500">*</span></label>
+                            <input type="number" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" placeholder="Contoh: 08123456789">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Alamat Lengkap (RT/RW) <span class="text-red-500">*</span></label>
+                            <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" placeholder="Jl..., RT 00/RW 00">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Pilih Jenis Layanan <span class="text-red-500">*</span></label>
+                        <select required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition bg-white">
+                            <option value="" disabled selected>-- Pilih Layanan --</option>
+                            <option value="ktp_kk">Surat Pengantar KTP / KK</option>
+                            <option value="domisili">Surat Keterangan Domisili</option>
+                            <option value="sku">Surat Keterangan Usaha (SKU)</option>
+                            <option value="lainnya">Lainnya</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Keperluan / Keterangan Tambahan</label>
+                        <textarea rows="2" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" placeholder="Tuliskan keperluan pengajuan surat ini..."></textarea>
+                    </div>
+
+                    <div class="border-t border-gray-200 pt-4 mt-2">
+                        <p class="text-sm font-semibold text-gray-700 mb-3"><i class="fas fa-file-upload text-secondary mr-1"></i> Upload Berkas Pendukung</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-xs text-gray-600 mb-1">Foto/Scan KTP <span class="text-red-500">*</span></label>
+                                <input type="file" required accept="image/*,.pdf" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-primary hover:file:bg-blue-100 transition cursor-pointer border border-gray-200 rounded-lg p-1">
+                            </div>
+                            <div>
+                                <label class="block text-xs text-gray-600 mb-1">Surat Pengantar RT/RW <span class="text-red-500">*</span></label>
+                                <input type="file" required accept="image/*,.pdf" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-primary hover:file:bg-blue-100 transition cursor-pointer border border-gray-200 rounded-lg p-1">
+                            </div>
+                        </div>
+                        <p class="text-[10px] text-gray-400 mt-2 italic">*Format file yang diterima: JPG, PNG, atau PDF. Maksimal 2MB.</p>
+                    </div>
+
+                    <!-- Footer Action di dalam form agar tipe submit terbaca -->
+                    <div class="flex justify-end gap-3 pt-4 border-t border-gray-100 mt-4">
+                        <button type="button" onclick="tutupModalForm()" class="px-5 py-2.5 bg-gray-100 text-gray-700 font-bold rounded-lg hover:bg-gray-200 transition-colors text-sm focus:outline-none">
+                            Batal
+                        </button>
+                        <button type="submit" class="px-5 py-2.5 bg-secondary text-white font-bold rounded-lg hover:bg-teal-700 transition-colors text-sm focus:outline-none flex items-center gap-2 shadow-md">
+                            <i class="fas fa-paper-plane"></i> Kirim Pengajuan
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT UNTUK MENU DAN MODAL -->
+    <script>
+        // -- Script Navigasi Mobile --
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
+        document.querySelectorAll('#mobile-menu a').forEach(link => { link.addEventListener('click', () => { menu.classList.add('hidden'); }); });
+
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-lg');
+                header.classList.replace('py-3', 'py-2');
+            } else {
+                header.classList.remove('shadow-lg');
+                header.classList.replace('py-2', 'py-3');
+            }
+        });
+
+        // -- Data & Logic Modal Info Layanan --
+        const dataLayanan = {
+            'adminduk': {
+                judul: 'Administrasi Kependudukan',
+                icon: 'fas fa-id-card',
+                iconBg: 'bg-blue-100 text-primary',
+                syarat: [
+                    'Surat Pengantar dari RT dan RW setempat.',
+                    'Fotokopi dokumen lama (KTP/KK) jika ada.',
+                    'Untuk layanan Jemput Bola (Jebol), pastikan wilayah RT/RW Anda sedang mendapat giliran jadwal dari kelurahan/Disdukcapil.'
+                ],
+                alur: [
+                    'Pemohon membawa berkas pengantar ke loket pelayanan kelurahan.',
+                    'Petugas kelurahan memverifikasi berkas dan mengeluarkan surat pengantar resmi.',
+                    'Pemohon membawa surat pengantar ke kecamatan atau layanan Disdukcapil Kota Tangerang Selatan.',
+                    'Khusus program <b>Jebol (Jemput Bola)</b>, warga dapat langsung mendatangi lokasi mobil layanan keliling yang dijadwalkan di wilayahnya untuk rekam/cetak di tempat.'
+                ]
+            },
+            'kesehatan': {
+                judul: 'Layanan Kesehatan & Posyandu',
+                icon: 'fas fa-clinic-medical',
+                iconBg: 'bg-teal-100 text-secondary',
+                syarat: [
+                    'Buku KIA / Kartu Menuju Sehat (KMS) untuk bayi/balita.',
+                    'Terdaftar/melapor ke kader setempat untuk mengikuti Pos Lansia Alamanda.',
+                    'Membawa fotokopi KTP / BPJS (jika diperlukan untuk rujukan medis).'
+                ],
+                alur: [
+                    'Warga mendatangi lokasi Posyandu balita atau Pos Lansia Alamanda sesuai jadwal rutin bulanan.',
+                    'Dilakukan pendaftaran, penimbangan, dan pemeriksaan dasar (tumbuh kembang/tensi darah).',
+                    'Warga mengikuti program penyuluhan kesehatan.',
+                    'Jika terdapat gejala spesifik, warga akan diarahkan mengikuti skrining pencegahan penyakit (seperti skrining TBC) bersama petugas Puskesmas Rawa Buntu.',
+                    'Kader kesehatan juga melakukan program gerebek jentik DBD langsung ke rumah-rumah warga secara berkala.'
+                ]
+            },
+            'surat': {
+                judul: 'Surat Keterangan & Pengantar',
+                icon: 'fas fa-file-signature',
+                iconBg: 'bg-blue-100 text-primary',
+                syarat: [
+                    'Surat Pengantar dari RT/RW setempat.',
+                    'Fotokopi KTP dan Kartu Keluarga (KK) pemohon.',
+                    'Untuk Surat Keterangan Usaha (SKU): Lampirkan foto tempat usaha / pendukung lainnya.'
+                ],
+                alur: [
+                    'Pemohon menyerahkan berkas ke petugas loket kelurahan.',
+                    'Petugas memeriksa kelengkapan persyaratan dokumen pendukung.',
+                    'Petugas mengetik draf surat (Domisili, SKU, atau Pengantar lainnya).',
+                    'Pengecekan dan penandatanganan surat oleh Kasi/Sekretaris Kelurahan/Lurah.',
+                    'Surat diserahkan kembali kepada pemohon di loket pengambilan.'
+                ]
+            }
+        };
+
+        const modalLayanan = document.getElementById('modal-layanan');
+        const modalPanel = document.getElementById('modal-panel');
+
+        function bukaModal(jenis) {
+            const data = dataLayanan[jenis];
+            if (!data) return;
+
+            document.getElementById('modal-title').innerText = data.judul;
+            const iconContainer = document.getElementById('modal-icon-container');
+            iconContainer.className = `w-10 h-10 rounded-full flex items-center justify-center text-lg shadow-sm ${data.iconBg}`;
+            document.getElementById('modal-icon').className = data.icon;
+
+            document.getElementById('modal-syarat').innerHTML = data.syarat.map(item => `<li>${item}</li>`).join('');
+            document.getElementById('modal-alur').innerHTML = data.alur.map(item => `<li>${item}</li>`).join('');
+
+            modalLayanan.classList.remove('hidden');
+            modalLayanan.classList.add('flex');
+            
+            setTimeout(() => {
+                modalLayanan.classList.remove('opacity-0');
+                modalPanel.classList.remove('scale-95');
+                modalPanel.classList.add('scale-100');
+            }, 10);
+            
+            document.body.style.overflow = 'hidden';
+        }
+
+        function tutupModal() {
+            modalLayanan.classList.add('opacity-0');
+            modalPanel.classList.remove('scale-100');
+            modalPanel.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modalLayanan.classList.add('hidden');
+                modalLayanan.classList.remove('flex');
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        // -- Logic Modal Form Pengajuan Online --
+        const modalForm = document.getElementById('modal-form');
+        const modalFormPanel = document.getElementById('modal-form-panel');
+
+        function bukaModalForm() {
+            modalForm.classList.remove('hidden');
+            modalForm.classList.add('flex');
+            setTimeout(() => {
+                modalForm.classList.remove('opacity-0');
+                modalFormPanel.classList.remove('scale-95');
+                modalFormPanel.classList.add('scale-100');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function tutupModalForm() {
+            modalForm.classList.add('opacity-0');
+            modalFormPanel.classList.remove('scale-100');
+            modalFormPanel.classList.add('scale-95');
+            setTimeout(() => {
+                modalForm.classList.add('hidden');
+                modalForm.classList.remove('flex');
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        function submitFormLayanan(event) {
+            event.preventDefault(); // Mencegah reload halaman
+            
+            // Simulasi proses pengiriman data
+            const btnSubmit = event.target.querySelector('button[type="submit"]');
+            const originalText = btnSubmit.innerHTML;
+            btnSubmit.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memproses...';
+            btnSubmit.disabled = true;
+
+            setTimeout(() => {
+                alert('Pengajuan Layanan Berhasil Terkirim!\n\nPetugas Kelurahan Rawa Buntu akan segera memverifikasi data Anda dan menghubungi via WhatsApp untuk proses selanjutnya.');
+                tutupModalForm();
+                event.target.reset(); // Reset isi form
+                
+                // Kembalikan tombol ke kondisi semula
+                btnSubmit.innerHTML = originalText;
+                btnSubmit.disabled = false;
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
